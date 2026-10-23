@@ -1,0 +1,12 @@
+{
+  "name": "mira-personal-agent",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "Mira — a mobile-first personal agent experience.",
+  "scripts": {
+    "build": "node scripts/build.mjs",
+    "start": "node scripts/serve.mjs",
+    "capture": "node scripts/capture.mjs"
+  }
+}

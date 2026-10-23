@@ -1,0 +1,282 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#0a0c0b">
+  <meta name="description" content="Mira is a personal agent that plans, books, and handles the small things — right from your phone.">
+  <title>Mira — your personal agent</title>
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='16' fill='%23c9f97a'/%3E%3Cpath d='M32 13l4.8 13.2L50 31l-13.2 4.8L32 49l-4.8-13.2L14 31l13.2-4.8z' fill='%230a0c0b'/%3E%3C/svg%3E">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body data-app-ready="false">
+  <svg class="sprite" aria-hidden="true" focusable="false">
+    <symbol id="i-spark" viewBox="0 0 24 24"><path d="M12 2.5l2.2 6.1 6.3 2.2-6.3 2.2L12 19l-2.2-6.1L3.5 10.8l6.3-2.2z"/><path d="M19.5 15.5l.8 2.2 2.2.8-2.2.8-.8 2.2-.8-2.2-2.2-.8 2.2-.8z"/></symbol>
+    <symbol id="i-plus" viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></symbol>
+    <symbol id="i-sun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></symbol>
+    <symbol id="i-calendar" viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="16" rx="3"/><path d="M8 3v4M16 3v4M3 10h18"/></symbol>
+    <symbol id="i-clock" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></symbol>
+    <symbol id="i-bolt" viewBox="0 0 24 24"><path d="M13 2L4.5 13H11l-1 9 8.5-11H12z"/></symbol>
+    <symbol id="i-mic" viewBox="0 0 24 24"><rect x="9" y="3" width="6" height="11" rx="3"/><path d="M5 11a7 7 0 0 0 14 0M12 18v3M8 21h8"/></symbol>
+    <symbol id="i-arrow" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></symbol>
+    <symbol id="i-search" viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="M20 20l-3.5-3.5"/></symbol>
+    <symbol id="i-bell" viewBox="0 0 24 24"><path d="M18 8a6 6 0 0 0-12 0c0 7-3 7-3 9h18c0-2-3-2-3-9M10 21h4"/></symbol>
+    <symbol id="i-menu" viewBox="0 0 24 24"><path d="M4 7h16M4 12h16M4 17h16"/></symbol>
+    <symbol id="i-home" viewBox="0 0 24 24"><path d="M3 11l9-7 9 7v9a1 1 0 0 1-1 1h-5v-6H9v6H4a1 1 0 0 1-1-1z"/></symbol>
+    <symbol id="i-pulse" viewBox="0 0 24 24"><path d="M2 12h4l2.5-6 4 12 3-8 2 2h4.5"/></symbol>
+    <symbol id="i-brain" viewBox="0 0 24 24"><path d="M9 3a3 3 0 0 0-3 3 3 3 0 0 0-1 5.8V15a3 3 0 0 0 4 2.8V21M15 3a3 3 0 0 1 3 3 3 3 0 0 1 1 5.8V15a3 3 0 0 1-4 2.8V21M12 3v18"/></symbol>
+    <symbol id="i-grid" viewBox="0 0 24 24"><rect x="3" y="3" width="7" height="7" rx="2"/><rect x="14" y="3" width="7" height="7" rx="2"/><rect x="3" y="14" width="7" height="7" rx="2"/><rect x="14" y="14" width="7" height="7" rx="2"/></symbol>
+    <symbol id="i-check" viewBox="0 0 24 24"><path d="M4 12.5l5 5L20 6.5"/></symbol>
+    <symbol id="i-car" viewBox="0 0 24 24"><path d="M4 16v-3l2-6h12l2 6v3"/><rect x="2" y="15" width="20" height="4" rx="2"/><circle cx="7" cy="19" r="2"/><circle cx="17" cy="19" r="2"/></symbol>
+    <symbol id="i-chevron" viewBox="0 0 24 24"><path d="M9 5l7 7-7 7"/></symbol>
+    <symbol id="i-undo" viewBox="0 0 24 24"><path d="M9 7H5v-4M5.5 7a8 8 0 1 1-1 8"/></symbol>
+    <symbol id="i-more" viewBox="0 0 24 24"><circle cx="5" cy="12" r="1.4"/><circle cx="12" cy="12" r="1.4"/><circle cx="19" cy="12" r="1.4"/></symbol>
+    <symbol id="i-shield" viewBox="0 0 24 24"><path d="M12 3l7 3v6c0 4.5-3 7.5-7 9-4-1.5-7-4.5-7-9V6z"/><path d="M9 12l2 2 4-4"/></symbol>
+    <symbol id="i-paperclip" viewBox="0 0 24 24"><path d="M20 11l-8.5 8.5a5 5 0 0 1-7-7L13 4a3.5 3.5 0 0 1 5 5l-8.5 8.5a2 2 0 0 1-3-3L14 6"/></symbol>
+    <symbol id="i-message" viewBox="0 0 24 24"><path d="M21 12a8 8 0 0 1-8 8H4l2.2-3.3A8 8 0 1 1 21 12z"/></symbol>
+    <symbol id="i-map" viewBox="0 0 24 24"><path d="M9 4L3 6v14l6-2 6 2 6-2V4l-6 2z"/><path d="M9 4v14M15 6v14"/></symbol>
+    <symbol id="i-wallet" viewBox="0 0 24 24"><rect x="3" y="6" width="18" height="13" rx="3"/><path d="M3 10h18M16 15h1"/></symbol>
+  </svg>
+
+  <div class="shell" id="shell">
+    <div class="ambient" aria-hidden="true"></div>
+
+    <aside class="sidebar" id="sidebar" aria-label="Primary navigation">
+      <a class="brand" href="#" aria-label="Mira home">
+        <span class="brand-mark"><svg class="ico"><use href="#i-spark"/></svg></span>
+        <span class="brand-word">mira<span>agent</span></span>
+      </a>
+
+      <button class="new-request" id="newRequest" type="button">
+        <span class="new-plus"><svg class="ico"><use href="#i-plus"/></svg></span>
+        <span>New request</span>
+        <kbd>⌘K</kbd>
+      </button>
+
+      <nav class="nav">
+        <a class="nav-item active" href="#chat" data-view="Today">
+          <svg class="ico"><use href="#i-home"/></svg><span>Today</span><span class="nav-badge">4</span>
+        </a>
+        <a class="nav-item" href="#chat" data-view="Activity">
+          <svg class="ico"><use href="#i-pulse"/></svg><span>Activity</span>
+        </a>
+        <a class="nav-item" href="#chat" data-view="Memory">
+          <svg class="ico"><use href="#i-brain"/></svg><span>Memory</span>
+        </a>
+        <a class="nav-item" href="#chat" data-view="Apps">
+          <svg class="ico"><use href="#i-grid"/></svg><span>Connected apps</span><span class="nav-count">6</span>
+        </a>
+      </nav>
+
+      <p class="section-label">Recent</p>
+      <div class="recent">
+        <button class="recent-item" type="button" data-prompt="Show me the plan for dinner with Sam">
+          <span class="recent-dot lime"></span>
+          <span><strong>Dinner with Sam</strong><small>Nóma · 7:30 PM</small></span>
+          <span class="recent-time">2m</span>
+        </button>
+        <button class="recent-item" type="button" data-prompt="Give me a quick summary of my morning">
+          <span class="recent-dot blue"></span>
+          <span><strong>Morning brief</strong><small>3 things handled</small></span>
+          <span class="recent-time">7:30</span>
+        </button>
+        <button class="recent-item" type="button" data-prompt="When is my airport transfer?">
+          <span class="recent-dot amber"></span>
+          <span><strong>Airport transfer</strong><small>Tomorrow · 4:10 PM</small></span>
+          <span class="recent-time">1h</span>
+        </button>
+      </div>
+
+      <div class="sidebar-spacer"></div>
+
+      <div class="pro-card">
+        <div class="pro-top"><span class="pro-spark"><svg class="ico"><use href="#i-spark"/></svg></span><span class="pill subtle">Mira Pro</span></div>
+        <p><strong>4.2 hours</strong> given back to you this week.</p>
+        <button type="button" data-toast="Your weekly agent report is ready.">View report <svg class="ico"><use href="#i-arrow"/></svg></button>
+      </div>
+
+      <div class="profile">
+        <span class="avatar avatar-photo">AR</span>
+        <span><strong>Alex Rivera</strong><small>Personal workspace</small></span>
+        <button class="icon-btn" type="button" aria-label="Profile options" data-toast="Workspace settings are up to date."><svg class="ico"><use href="#i-more"/></svg></button>
+      </div>
+    </aside>
+
+    <main class="chat" id="chat">
+      <header class="chat-head">
+        <button class="icon-btn mobile-menu" id="menuButton" type="button" aria-label="Open navigation"><svg class="ico"><use href="#i-menu"/></svg></button>
+        <div class="agent-id">
+          <span class="orb avatar-orb" aria-hidden="true"><span></span></span>
+          <div>
+            <h1>Mira <span class="verified" aria-label="Verified agent"><svg class="ico"><use href="#i-check"/></svg></span></h1>
+            <p><span class="status-dot"></span>Personal agent · always on</p>
+          </div>
+        </div>
+        <div class="head-actions">
+          <button class="icon-btn head-search" type="button" aria-label="Search" data-toast="Search is ready. Type a request below."><svg class="ico"><use href="#i-search"/></svg></button>
+          <button class="icon-btn has-dot" type="button" aria-label="Notifications" data-toast="No new alerts. Mira is on it."><svg class="ico"><use href="#i-bell"/></svg></button>
+          <span class="avatar avatar-photo head-avatar">AR</span>
+        </div>
+      </header>
+
+      <div class="chat-scroll" id="chatScroll">
+        <div class="day-divider"><span>Today · Friday, Oct 23</span><span class="live-pill"><span></span>Live</span></div>
+
+        <article class="msg agent-msg">
+          <span class="avatar avatar-orb small" aria-hidden="true"><span></span></span>
+          <div class="msg-body">
+            <div class="bubble agent-bubble intro-bubble">
+              <div class="bubble-meta"><span class="eyebrow">Morning brief</span><time>7:30 AM</time></div>
+              <h2>Good morning, Alex. Your day is already moving.</h2>
+              <p>While you slept, I sorted your inbox, held the table, and rerouted your commute around the bridge traffic.</p>
+              <div class="brief-grid">
+                <div class="brief-card">
+                  <span class="brief-icon sun"><svg class="ico"><use href="#i-sun"/></svg></span>
+                  <strong>21°</strong>
+                  <small>Clear in Lisbon</small>
+                </div>
+                <div class="brief-card">
+                  <span class="brief-icon blue"><svg class="ico"><use href="#i-calendar"/></svg></span>
+                  <strong>10:00</strong>
+                  <small>First meeting</small>
+                </div>
+                <div class="brief-card">
+                  <span class="brief-icon lime"><svg class="ico"><use href="#i-bolt"/></svg></span>
+                  <strong>3 done</strong>
+                  <small>Before you woke</small>
+                </div>
+              </div>
+              <button class="text-link" type="button" data-toast="Opening your full morning brief.">See everything Mira handled <svg class="ico"><use href="#i-arrow"/></svg></button>
+            </div>
+            <div class="quick-chips" aria-label="Suggested requests">
+              <button type="button" data-prompt="Plan a calm evening for me">Plan my evening</button>
+              <button type="button" data-prompt="Order my usual coffee">Order a flat white</button>
+              <button type="button" data-prompt="Summarize the rest of my day">Summarize my day</button>
+            </div>
+          </div>
+        </article>
+
+        <article class="msg user-msg">
+          <div class="msg-body">
+            <div class="bubble user-bubble">
+              <div class="bubble-meta"><span class="eyebrow">You</span><time>8:14 AM</time></div>
+              <p>I land at 5:40 and have dinner with Sam at 7:30. Can you make it work?</p>
+            </div>
+          </div>
+          <span class="avatar avatar-photo small" aria-hidden="true">AR</span>
+        </article>
+
+        <article class="msg agent-msg">
+          <span class="avatar avatar-orb small" aria-hidden="true"><span></span></span>
+          <div class="msg-body">
+            <div class="bubble agent-bubble">
+              <div class="bubble-meta"><span class="eyebrow">On it</span><time>8:14 AM</time></div>
+              <p>Yes — I moved your pickup earlier and kept Nóma at 7:30. Sam has the invite and your bag is already in the car.</p>
+
+              <div class="run-card">
+                <div class="run-head">
+                  <span class="run-icon"><svg class="ico"><use href="#i-check"/></svg></span>
+                  <div><strong>Dinner with Sam</strong><small>Nóma · Table for 2</small></div>
+                  <span class="pill success">Confirmed</span>
+                </div>
+                <ul class="run-list">
+                  <li><span class="tick"><svg class="ico"><use href="#i-check"/></svg></span><span>Calendar cleared<small>6:45 PM onward</small></span></li>
+                  <li><span class="tick"><svg class="ico"><use href="#i-check"/></svg></span><span>Table reserved<small>7:30 PM · window seat</small></span></li>
+                  <li><span class="tick"><svg class="ico"><use href="#i-check"/></svg></span><span>Invite sent<small>Sam accepted</small></span></li>
+                </ul>
+                <div class="run-actions">
+                  <button class="ghost-btn" type="button" data-toast="Plan opened: 3 steps, all complete."><svg class="ico"><use href="#i-pulse"/></svg>View plan</button>
+                  <button class="ghost-btn" type="button" data-toast="Nothing to undo. This one is handled."><svg class="ico"><use href="#i-undo"/></svg>Undo</button>
+                </div>
+              </div>
+
+              <div class="approval-card" id="rideCard">
+                <span class="approval-icon"><svg class="ico"><use href="#i-car"/></svg></span>
+                <div class="approval-copy">
+                  <div class="approval-top"><strong>Airport transfer</strong><span class="price">$24</span></div>
+                  <small>Today · 4:10 PM · 18 min · Black car</small>
+                </div>
+                <button class="approve-btn" type="button" id="approveRide">Approve ride</button>
+                <p class="hold-note">Mira will hold it until 8:45 AM.</p>
+              </div>
+            </div>
+            <div class="quick-chips">
+              <button type="button" data-prompt="Add a coffee stop before the airport">Add a coffee stop</button>
+              <button type="button" data-prompt="Tell Sam I might be five minutes late">Message Sam</button>
+            </div>
+          </div>
+        </article>
+
+        <div class="typing" id="typing" hidden>
+          <span class="avatar avatar-orb small" aria-hidden="true"><span></span></span>
+          <div class="typing-bubble"><span></span><span></span><span></span></div>
+        </div>
+      </div>
+
+      <div class="composer-wrap">
+        <div class="suggestions" id="suggestions" aria-label="Quick requests">
+          <button type="button" data-prompt="Move my 3pm call by thirty minutes">Move my 3pm</button>
+          <button type="button" data-prompt="Order a flat white for pickup">Order a flat white</button>
+          <button type="button" data-prompt="Start a 45 minute focus session">Focus for 45m</button>
+        </div>
+        <form class="composer" id="composer" autocomplete="off">
+          <button class="composer-btn" type="button" aria-label="Add attachment" data-toast="Attach a file, photo, or forward an email."><svg class="ico"><use href="#i-paperclip"/></svg></button>
+          <input id="promptInput" type="text" placeholder="Ask Mira to handle something…" aria-label="Ask Mira" maxlength="240">
+          <button class="composer-btn mic" type="button" aria-label="Talk to Mira" data-toast="Listening… speak naturally."><svg class="ico"><use href="#i-mic"/></svg></button>
+          <button class="send-btn" type="submit" aria-label="Send request"><svg class="ico"><use href="#i-arrow"/></svg></button>
+        </form>
+        <p class="composer-note"><svg class="ico"><use href="#i-shield"/></svg>Mira asks before payments, bookings, or sharing anything.</p>
+      </div>
+    </main>
+
+    <aside class="rail" aria-label="Agent activity">
+      <div class="rail-head">
+        <div><span class="live-dot"></span><strong>Live run</strong></div>
+        <span class="pill neutral" id="railState">Running</span>
+      </div>
+
+      <section class="live-card">
+        <div class="orb-scene" aria-hidden="true">
+          <span class="ring ring-1"></span>
+          <span class="ring ring-2"></span>
+          <span class="ring ring-3"></span>
+          <span class="orb-large"><svg class="ico"><use href="#i-spark"/></svg></span>
+        </div>
+        <h3 id="liveTitle">Dinner with Sam</h3>
+        <p id="liveSub">Reservation complete. Confirming with Sam.</p>
+        <ol class="steps" id="liveSteps">
+          <li class="done"><span><svg class="ico"><use href="#i-check"/></svg></span>Checked your calendar</li>
+          <li class="done"><span><svg class="ico"><use href="#i-check"/></svg></span>Found 3 openings at Nóma</li>
+          <li class="done"><span><svg class="ico"><use href="#i-check"/></svg></span>Reserved 7:30 PM for 2</li>
+          <li class="active"><span></span>Waiting for Sam to accept</li>
+        </ol>
+        <div class="live-progress"><span></span></div>
+        <button class="rail-btn" type="button" data-toast="Full activity timeline opened.">View activity <svg class="ico"><use href="#i-arrow"/></svg></button>
+      </section>
+
+      <section class="rail-card">
+        <div class="rail-card-head"><span class="eyebrow">Context</span><span class="mini-status">6 apps</span></div>
+        <div class="context-list">
+          <div class="context-item"><span class="app-icon cal">31</span><span>Calendar</span><i class="conn"></i></div>
+          <div class="context-item"><span class="app-icon msg"><svg class="ico"><use href="#i-message"/></svg></span><span>Messages</span><i class="conn"></i></div>
+          <div class="context-item"><span class="app-icon map"><svg class="ico"><use href="#i-map"/></svg></span><span>Maps</span><i class="conn"></i></div>
+          <div class="context-item"><span class="app-icon wallet"><svg class="ico"><use href="#i-wallet"/></svg></span><span>Wallet</span><span class="permission">Ask first</span></div>
+        </div>
+      </section>
+
+      <section class="stat-grid">
+        <div class="stat-card"><span class="eyebrow">Time saved</span><strong>4.2<small>h</small></strong><span class="trend">↑ 18% this week</span></div>
+        <div class="stat-card"><span class="eyebrow">Actions</span><strong>12</strong><span class="trend calm">all approved</span></div>
+      </section>
+
+      <div class="privacy-note"><svg class="ico"><use href="#i-shield"/></svg><p><strong>Private by design.</strong> Your context stays on this device until you ask Mira to act.</p></div>
+    </aside>
+
+    <div class="scrim" id="scrim"></div>
+  </div>
+
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+  <script src="app.js"></script>
+</body>
+</html>
